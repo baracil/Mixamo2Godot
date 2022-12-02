@@ -46,11 +46,8 @@ def main():
     print(f"Base Dir : {basedir}")
     print(f"Library  : {library}")
 
-    if True:
-        exporter = Mixamo2Godot(basedir)
-        exporter.process(library)
-
-
+    exporter = Mixamo2Godot(basedir)
+    exporter.process(library)
     return
 
 def clear_collection(collection):
