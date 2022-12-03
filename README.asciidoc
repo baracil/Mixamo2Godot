@@ -31,7 +31,31 @@ The script requires that :
 . One of the animation is the T pose, and it must be named `TPose.fbx`
 
 You can then launch the script within Blender or from the command
-line with `Blender --background --python /path/to/the/script -- /path/to/directory/of/animation`.
+line with `Blender --background --python /path/to/the/script -- /path/to/directory/of/animations`.
 
-The name of the FBX files will be used to name the strips (you can add <code>-loop</code> to the name,
+The name of the FBX files will be used to name the strips (you can add `-loop` to the name,
 so that Godot will make it a loop). The base name of the directory containing the FBX file will be used for the export file (with .glb added).
+
+For instance, if in the folder `basic_movement` there are the following files :
+
+* `Breathing Idle-loop.fbx`
+* `Crouched To Standing.fbx`
+* `Crouching Idle-loop.fbx`
+* `Falling Idle.fbx`
+* `dle-loop.fb`
+* `Jumping Down.fbx`
+* `Jumping.fb`
+* `Left Strafe Walking-loop.fbx`
+* `Right Strafe Walking-loop.fbx`
+* `Running Jump.fbx`
+* `Running-loop.fb`
+* `Standard Run-loop.fbx`
+* `Start Walking.fbx`
+* `Stop Walking.fbx`
+* `TPose.fb`
+* `Walking Left Turn.fbx`
+* `Walking-loop.fb`
+
+After running the script, you will get an export name `basice_movement.glb` with the following nla :
+
+image::images/nla.png[]
