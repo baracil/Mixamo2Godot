@@ -21,9 +21,9 @@ This seemed to be a good start for me to learn how to write script for Blender..
 It performs all the steps described in this https://www.youtube.com/watch?v=3Hk9ljcS1Ro[video] :
 
 * scales the animations (object and hips location)
-* rename the bones
-* add one strip for each animation
-* add root motion (parent the hips, copy xz location keyframes...)
+* renames the bones
+* adds one strip for each animation
+* adds root motion (parents the hips, copies xz location keyframes...)
 
 The script requires that :
 
