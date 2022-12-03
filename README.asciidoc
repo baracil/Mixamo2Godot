@@ -28,10 +28,10 @@ It performs all the steps described in this https://www.youtube.com/watch?v=3Hk9
 The script requires that :
 
 . All the animations from Mixamo are in one directory
-. One of the animation is the T pose, and it must be named <code>TPose.fbx</code>
+. One of the animation is the T pose, and it must be named `TPose.fbx`
 
 You can then launch the script within Blender or from the command
-line with <code>Blender --background --python /path/to/the/script -- /path/to/directory/of/animation</code>.
+line with `Blender --background --python /path/to/the/script -- /path/to/directory/of/animation`.
 
 The name of the FBX files will be used to name the strips (you can add <code>-loop</code> to the name,
 so that Godot will make it a loop). The base name of the directory containing the FBX file will be used for the export file (with .glb added).
