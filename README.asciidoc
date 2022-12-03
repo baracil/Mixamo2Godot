@@ -56,6 +56,6 @@ For instance, if in the folder `basic_movement` there are the following files :
 * `Walking Left Turn.fbx`
 * `Walking-loop.fb`
 
-After running the script, you will get an export name `basice_movement.glb` with the following nla :
+After running the script, you will get an export named `basice_movement.glb` with the following nla :
 
 image::images/nla.png[]
