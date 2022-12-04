@@ -72,9 +72,11 @@ def main():
     exporter.process(library)
     return
 
+
 def clear_collection(collection):
     for o in collection:
         collection.remove(o)
+
 
 def clear_all():
     clear_collection(bpy.data.objects)
@@ -241,7 +243,7 @@ class Mixamo2Godot:
             if name == "TPose":
                 continue
             print(f"Processing '${name}'")
-            model = self.create_model(library, name ,add_root_node=False)
+            model = self.create_model(library, name, add_root_node=False)
             t_pose.add_action(model)
             model.delete()
             t_pose.copy_xz_hips_location_to_root()
