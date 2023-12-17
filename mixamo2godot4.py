@@ -46,13 +46,14 @@ from mathutils import Matrix
 #
 # Set it to the directory containing the FBX files that will be joined
 # The final directory name will be used for the name of the library (with .glb added)
-FBX_DIR = "/home/perococco/dev/Games/Animation/Mixamo/download/basic_movement"
+FBX_DIR = "/path_to/basic_movement"
 
 
 def main():
     clear_all()
     argv = sys.argv
 
+    export_gtlf = True
     source_dir = FBX_DIR
 
     if "--" in argv:
@@ -60,7 +61,12 @@ def main():
         if len(argv) == 0:
             print("Arguments missing :  -- directory_with_fbx_files [output_file.glb]")
             return
-        source_dir = os.path.normpath(argv[0])
+        for a in argv:
+            if a == "--no-export" or a == "-ne":
+                 export_gtlf=False
+            else:
+               source_dir = os.path.normpath(a)
+
 
     basedir = os.path.dirname(source_dir)
     library = os.path.basename(source_dir)
@@ -69,7 +75,7 @@ def main():
     print(f"Library  : {library}")
 
     exporter = Mixamo2Godot(basedir)
-    exporter.process(library)
+    exporter.process(library,export_gtlf)
     return
 
 
@@ -227,7 +233,7 @@ class Mixamo2Godot:
     def __init__(self, source_dir):
         self.source_dir = source_dir
 
-    def process(self, library):
+    def process(self, library, export_gtlf):
         directory = os.path.join(self.source_dir, library);
         names = list_fbx_name(directory)
         if "TPose" not in names:
@@ -251,9 +257,14 @@ class Mixamo2Godot:
 
         switch_to_object_mode(t_pose.armature)
 
-        output = os.path.join(self.source_dir, library+".glb")
-        print(f"Export to {output}")
-        bpy.ops.export_scene.gltf(filepath=output,export_format='GLB')
+        output = os.path.join(self.source_dir, library+".blend")
+        print(f"Save to {output}")
+        bpy.ops.wm.save_mainfile(filepath=output)
+
+        if export_gtlf:
+	        output_glb = os.path.join(self.source_dir, library+".glb")
+        	print(f"Export to {output_glb}")
+        	bpy.ops.export_scene.gltf(filepath=output_glb ,export_format='GLB')
 
     def create_model(self, library, name, add_root_node) -> FBXModel:
         model = FBXModel(self.source_dir, library, name)

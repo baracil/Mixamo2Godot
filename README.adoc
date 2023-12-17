@@ -34,7 +34,9 @@ You can then launch the script within Blender or from the command
 line with `Blender --background --python /path/to/the/script -- /path/to/directory/of/animations`.
 
 The name of the FBX files will be used to name the strips (you can add `-loop` to the name,
-so that Godot will make it a loop). The base name of the directory containing the FBX file will be used for the export file (with .glb added).
+so that Godot will make it a loop). The base name of the directory containing the FBX file will be used for 
+the blender and  the export file (with .blend and .glb added).
+The export can be skipped by adding -ne to the previous command line (right after the `--`)
 
 For instance, if in the folder `basic_movement` there are the following files :
 
