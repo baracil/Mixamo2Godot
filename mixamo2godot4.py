@@ -253,7 +253,7 @@ class Mixamo2Godot:
 
         output = os.path.join(self.source_dir, library+".glb")
         print(f"Export to {output}")
-        bpy.ops.export_scene.gltf(filepath=output,)
+        bpy.ops.export_scene.gltf(filepath=output,export_format='GLB')
 
     def create_model(self, library, name, add_root_node) -> FBXModel:
         model = FBXModel(self.source_dir, library, name)
